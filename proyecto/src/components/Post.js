@@ -1,15 +1,25 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Component } from 'react';
 
-function Post({ data }) {
-  return (
+class Post extends Component {
+  constructor(props){
+    super(props)
+    this.state={}
+  }
+  componentDidMount(){
+    console.log(this.props)
+  }
+  render (){
+    return (
     <View style={styles.card}>
       <Text style={styles.author}>
-        {data.username ? data.username : (data.email || 'Autor desconocido')}
+        {this.props.data.data.email}
       </Text>
-      <Text style={styles.message}>{data.message}</Text>
-    </View>
-  );
+      <Text style={styles.message}>{this.props.data.data.message}</Text>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
