@@ -14,17 +14,19 @@ class Register extends Component {
   }
 
   onSubmit() {
-    const { email, username, password } = this.state;
+    const email = this.state.email;
+    const username = this.state.username;
+    const password = this.state.password;
 
     if (email.includes('@') === false) {
       this.setState({ error: 'Email mal formateado' });
       return;
     }
-    if (!password || password.length < 6) {
+    if (password.length < 6) {
       this.setState({ error: 'La password debe tener una longitud mínima de 6 caracteres' });
       return;
     }
-    if (!username) {
+    if (username.length == 0) {
       this.setState({ error: 'El nombre de usuario es obligatorio' });
       return;
     }
@@ -34,7 +36,7 @@ class Register extends Component {
       .then(() => {
         db.collection('users')
           .add({
-            email: auth.currentUser ? auth.currentUser.email : email,
+            email: email,
             username: username,
             createdAt: Date.now(),
           })
@@ -42,17 +44,22 @@ class Register extends Component {
             this.setState({ error: '' });
             this.props.navigation.navigate('Login');
           })
-          .catch(() => {
-            this.setState({ error: 'No se pudo guardar el usuario.' });
+          .catch((error) => {
+            this.setState({ error: error.message });
+            console.log(error) // para ver errores que tira firebase
           });
       })
-      .catch(() => {
-        this.setState({ error: 'Fallo en el registro.' });
+      .catch((error) => {
+        this.setState({ error: error.message });
+        console.log(error)
       });
   }
 
   render() {
-    const { email, username, password, error } = this.state;
+    const email = this.state.email;
+    const username = this.state.username;
+    const password = this.state.password;
+    const error = this.state.error
 
     return (
       <View style={styles.container}>
@@ -61,7 +68,6 @@ class Register extends Component {
         <TextInput
           style={styles.field}
           keyboardType='email-address'
-          autoCapitalize='none'
           placeholder='email'
           onChangeText={ text => this.setState({email:text}) }
           value={email}
@@ -77,7 +83,7 @@ class Register extends Component {
         <TextInput
           style={styles.field}
           placeholder='contraseña'
-          secureTextEntry
+          secureTextEntry={true}
           onChangeText={ text => this.setState({password:text}) }
           value={password}
         />
