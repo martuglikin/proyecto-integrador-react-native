@@ -51,10 +51,10 @@ class Profile extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Mi Perfil</Text>
-        <Text style={styles.row}><Text style={{ fontWeight: '700' }}>Usuario:</Text> {this.state.username}</Text>
-        <Text style={styles.row}><Text style={{ fontWeight: '700' }}>Email:</Text> {this.state.email}</Text>
+        <Text style={styles.row}><Text style={styles.fuente}>Usuario:</Text> {this.state.username}</Text>
+        <Text style={styles.row}><Text style={styles.fuente}>Email:</Text> {this.state.email}</Text>
 
-        <Text style={[styles.title, { marginTop: 16 }]}>Mis posteos</Text>
+        <Text style={[styles.title, styles.sectionTitle]}>Mis posteos</Text>
 
         <FlatList
           data={this.state.misPosts}
@@ -80,6 +80,7 @@ class Profile extends Component {
 const styles = StyleSheet.create({
   container: { flex: 1, alignSelf: 'stretch', padding: 16, paddingTop: 24 },
   title: { fontSize: 20, fontWeight: '700', textAlign: 'left', marginBottom: 8 },
+   sectionTitle: { marginTop: 16 },
   row: { marginBottom: 6 },
   logout: {
     backgroundColor: '#6c757d',
@@ -89,6 +90,9 @@ const styles = StyleSheet.create({
     borderColor: '#6c757d',
     marginTop: 12,
     alignSelf: 'center'
+  },
+  fuente:{
+     fontWeight: '700' 
   },
   textoLogout: {
     color: '#fff',

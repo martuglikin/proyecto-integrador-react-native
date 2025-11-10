@@ -130,16 +130,6 @@ const styles = StyleSheet.create({
   commentOwner: { fontWeight: '700', marginBottom: 4 },
   commentText: { fontSize: 15, lineHeight: 20 },
 
-  field: {
-    height: 20,
-    paddingVertical: 15,
-    paddingHorizontal: 10,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderStyle: 'solid',
-    borderRadius: 6,
-    marginVertical: 10,
-  },
   button: {
     backgroundColor: '#28a745',
     paddingHorizontal: 10,
@@ -151,7 +141,6 @@ const styles = StyleSheet.create({
     minWidth: 200,
   },
   buttonText: { color: '#fff', textAlign: 'center', fontWeight: '700' },
-  empty: { color: '#666', fontStyle: 'italic', marginVertical: 8 },
 
   inputTexto: {
     height: 100,
