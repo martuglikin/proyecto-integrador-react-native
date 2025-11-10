@@ -73,7 +73,7 @@ class Login extends Component {
         <Pressable style={styles.button} onPress={() => this.onSubmit()}>
           <Text style={styles.btnText}>Login</Text>
         </Pressable>
-        
+
         <Pressable
           onPress={() => this.props.navigation.navigate('Register')}
           style={[styles.btn1, styles.btn1ExtraMargin]}
@@ -84,7 +84,7 @@ class Login extends Component {
 
         <View>
           {this.state.error ? (
-            <Text style={styles.errorText}>
+            <Text style={styles.erroeText}>
               {this.state.error}
             </Text>
           ) : null}
