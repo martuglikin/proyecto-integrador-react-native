@@ -6,6 +6,7 @@ import { db } from '../firebase/config';
 import Post from "../components/Post";
 
 class Home extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -13,23 +14,25 @@ class Home extends Component {
             loading: true
         }
     }
-    componentDidMount(){
-        db.collection('posts').orderBy("createdAt", "desc").onSnapshot(docs => {
+
+    componentDidMount() {
+        db.collection('posts').orderBy("createdAt", "desc").onSnapshot(docs => { //permite obtener los documentos de una consulta en orden descendente (mas nuevo al mas viejo)
             let posts = []
             docs.forEach(doc => {
-                posts.push({id: doc.id, data: doc.data()})
+                posts.push({ id: doc.id, data: doc.data() })
             })
-            this.setState({posts: posts, loading: false})
+            this.setState({ posts: posts, loading: false })
         })
     }
+
     render() {
         return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Home</Text>
-            <FlatList data={this.state.posts} keyExtractor={item => item.id} renderItem={({item}) => <Post data={item}/>}/> {/*recorre el array de posts y para cada elemento renderiza un componente*/}
-        </View>
-    );
-}
+            <View style={styles.container}>
+                <Text style={styles.title}>Home</Text>
+                <FlatList data={this.state.posts} keyExtractor={item => item.id} renderItem={({ item }) => (<Post mostrarLikeComments={true} data={item} navigation={this.props.navigation} />)} /> {/*recorre el array de posts y para cada elemento renderiza un componente*/}
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
