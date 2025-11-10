@@ -47,7 +47,7 @@ class NuevoPost extends Component {
         <Text style={styles.title}>Nuevo post</Text>
 
         <TextInput
-          style={[styles.field, { height: 100, textAlignVertical: 'top' }]}
+          style={[styles.field, styles.fieldLarge]}
           placeholder="Escribí tu mensaje..."
           onChangeText={ text => this.setState({mensaje: text}) }
           value={mensaje}
@@ -77,6 +77,11 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     marginVertical: 10,
   },
+  fieldLarge: {
+    height: 100,
+    textAlignVertical: 'top'
+  },
+
   button: {
     backgroundColor: '#28a745',
     paddingHorizontal: 10,

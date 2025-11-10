@@ -73,10 +73,10 @@ class Login extends Component {
         <Pressable style={styles.button} onPress={() => this.onSubmit()}>
           <Text style={styles.btnText}>Login</Text>
         </Pressable>
-
+        
         <Pressable
           onPress={() => this.props.navigation.navigate('Register')}
-          style={[styles.btn1, { marginBottom: 12 }]}
+          style={[styles.btn1, styles.btn1ExtraMargin]}
         >
           <Text style={styles.btnText}>No tengo cuenta</Text>
         </Pressable>
@@ -84,7 +84,7 @@ class Login extends Component {
 
         <View>
           {this.state.error ? (
-            <Text style={{ color: 'red', textAlign: 'center', marginTop: 10 }}>
+            <Text style={styles.errorText}>
               {this.state.error}
             </Text>
           ) : null}
@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, alignSelf: 'stretch', padding: 16, justifyContent: 'center' },
   title: { fontSize: 22, fontWeight: '700', textAlign: 'center', marginBottom: 16 },
   btn1: { padding: 12, backgroundColor: '#7ca8dbff', borderRadius: 8, alignSelf: 'center' },
+  btn1ExtraMargin: { marginBottom: 12 },
   btn2: { padding: 12, backgroundColor: '#dca930ff', borderRadius: 8, alignSelf: 'center' },
   btnText: { textAlign: 'center' },
   field: {
@@ -119,7 +120,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: 'center',
     marginTop: 10,
-  }
+  },
+  errorText: { color: 'red', textAlign: 'center', marginTop: 10 },
 });
 
 export default Login;
