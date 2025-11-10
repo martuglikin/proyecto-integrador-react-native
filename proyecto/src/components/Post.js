@@ -42,7 +42,7 @@ class Post extends Component {
   render() {
     const info = this.props.data.data;
     const likes = info.likes || [];
-    const heart = this.state.userLiked ? 'â ¤ï¸ ' : 'ðŸ¤ ';
+    const heart = this.state.userLiked ? '❤️' : '🤍';
     return (
       <View style={styles.card}>
         <Text style={styles.autor}>{info.username || info.email || 'Autor desconocido'}</Text>
