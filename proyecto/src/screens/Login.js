@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
 import { db, auth } from '../firebase/config';
+import traductor from '../components/traductor';
 
 class Login extends Component {
 
@@ -43,7 +44,7 @@ class Login extends Component {
         this.props.navigation.navigate('HomeMenu'); // o tu pantalla Home
       })
       .catch((error) => {
-        this.setState({ error: error.message });
+        this.setState({ error: traductor(error) });
         console.log(error)
       });
   }

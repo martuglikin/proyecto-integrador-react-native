@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
 import { auth, db } from '../firebase/config';
+import traductor from '../components/traductor';
 
 class Register extends Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class Register extends Component {
           });
       })
       .catch((error) => {
-        this.setState({ error: error.message });
+        this.setState({ error: traductor(error) });
         console.log(error)
       });
   }
