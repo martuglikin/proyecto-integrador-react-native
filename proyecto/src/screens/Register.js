@@ -96,7 +96,7 @@ class Register extends Component {
 
         <Pressable
           onPress={() => this.props.navigation.navigate('Login')}
-          style={[styles.button, { backgroundColor: '#6c757d', borderColor: '#6c757d', marginTop: 10 }]}
+          style={[styles.button, styles.button2]}
         >
           <Text style={styles.buttonText}>Ya tengo cuenta</Text>
         </Pressable>
@@ -118,8 +118,9 @@ const styles = StyleSheet.create({
     borderRadius: 4, borderWidth: 1, borderColor: '#28a745',
     alignSelf: 'center', minWidth: 180, marginTop: 10
   },
+  button2:{ backgroundColor: '#6c757d', borderColor: '#6c757d', marginTop: 10 },
   buttonText: { color: '#fff', textAlign: 'center', fontWeight: '700' },
-  error: { color: '#DC143C', marginBottom: 8, textAlign: 'center' },
+  error: { color: 'red', marginBottom: 8, textAlign: 'center' },
 });
 
 export default Register;

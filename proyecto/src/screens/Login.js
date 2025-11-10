@@ -71,20 +71,20 @@ class Login extends Component {
         />
 
         <Pressable style={styles.button} onPress={() => this.onSubmit()}>
-          <Text style={styles.btnText}>Login</Text>
+          <Text style={styles.buttonText}>Login</Text>
         </Pressable>
 
         <Pressable
           onPress={() => this.props.navigation.navigate('Register')}
-          style={[styles.btn1, styles.btn1ExtraMargin]}
+          style={[styles.button, styles.button2]}
         >
-          <Text style={styles.btnText}>No tengo cuenta</Text>
+          <Text style={styles.buttonText}>No tengo cuenta</Text>
         </Pressable>
 
 
         <View>
           {this.state.error ? (
-            <Text style={styles.erroeText}>
+            <Text style={styles.errorText}>
               {this.state.error}
             </Text>
           ) : null}
@@ -99,10 +99,7 @@ class Login extends Component {
 const styles = StyleSheet.create({
   container: { flex: 1, alignSelf: 'stretch', padding: 16, justifyContent: 'center' },
   title: { fontSize: 22, fontWeight: '700', textAlign: 'center', marginBottom: 16 },
-  btn1: { padding: 12, backgroundColor: '#7ca8dbff', borderRadius: 8, alignSelf: 'center' },
-  btn1ExtraMargin: { marginBottom: 12 },
-  btn2: { padding: 12, backgroundColor: '#dca930ff', borderRadius: 8, alignSelf: 'center' },
-  btnText: { textAlign: 'center' },
+  buttonText: { color: '#fff', textAlign: 'center', fontWeight: '700' },
   field: {
     height: 20,
     paddingVertical: 15,
@@ -114,14 +111,12 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   button: {
-    backgroundColor: '#7ca8dbff',
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 10,
-    alignSelf: 'center',
-    marginTop: 10,
+    backgroundColor: '#28a745', paddingHorizontal: 10, paddingVertical: 6,
+    borderRadius: 4, borderWidth: 1, borderColor: '#28a745',
+    alignSelf: 'center', minWidth: 180, marginTop: 10
   },
-  errorText: { color: 'red', textAlign: 'center', marginTop: 10 },
+  button2:{ backgroundColor: '#6c757d', borderColor: '#6c757d', marginTop: 10 },
+  errorText: { color: "red", textAlign: 'center', marginTop: 10 },
 });
 
 export default Login;
