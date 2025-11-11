@@ -15,10 +15,12 @@ class Register extends Component {
   }
 
   onSubmit() {
+    //tomo los valores del formulario
     const email = this.state.email;
     const username = this.state.username;
     const password = this.state.password;
 
+    //validaciones
     if (email.includes('@') === false) {
       this.setState({ error: 'Email mal formateado' });
       return;
@@ -32,9 +34,11 @@ class Register extends Component {
       return;
     }
 
+    //creo el usuario en Firebase
     auth
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
+        //si se creó bien, guardamos el usuario en Firebase
         db.collection('users')
           .add({
             email: email,
@@ -42,10 +46,12 @@ class Register extends Component {
             createdAt: Date.now(),
           })
           .then(() => {
+             // si se guardó bien, borro error y voy al login
             this.setState({ error: '' });
             this.props.navigation.navigate('Login');
           })
           .catch((error) => {
+            //error al crear el usuario
             this.setState({ error: error.message });
             console.log(error) // para ver errores que tira firebase
           });
@@ -89,6 +95,8 @@ class Register extends Component {
           value={password}
         />
 
+      {/*mostrar error si existe*/}
+      
         {error ? <Text style={styles.error}>{error}</Text> : null}
 
         <Pressable style={styles.button} onPress={() => this.onSubmit()}>

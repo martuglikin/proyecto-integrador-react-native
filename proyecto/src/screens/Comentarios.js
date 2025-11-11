@@ -13,13 +13,14 @@ class Comentarios extends Component {
   }
 
   componentDidMount() {
+    //obtenemos el postId por navegacion
     const postId = this.props.route.params.postId;
 
 
     // Post
     db.collection('posts')
       .doc(postId)
-      .onSnapshot(doc => {
+      .onSnapshot(doc => { // onSnapshot actualiza en tiempo real los cambios del post
         this.setState({
           post: { id: doc.id, data: doc.data() },
         });
@@ -50,7 +51,7 @@ class Comentarios extends Component {
         text: this.state.texto,
         createdAt: Date.now(),
       })
-      .then(() => this.setState({ texto: '' }))
+      .then(() => this.setState({ texto: '' })) //limpiamos el input al terminar
       .catch(e => console.log(e));
   }
 
@@ -62,10 +63,12 @@ class Comentarios extends Component {
     return (
       <View style={styles.container}>
 
+      {/* Tarjeta con info del post (solo si ya cargó) */}
         {post ? (
           (() => {
             const info = post.data; 
             const likes = info.likes || [];
+            // Si el usuario actual está en likes, mostramos ❤️; si no, 🤍
             const heart = (auth.currentUser && likes.includes(auth.currentUser.email)) ? '❤️' : '🤍';
 
             return (

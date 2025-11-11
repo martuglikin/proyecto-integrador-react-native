@@ -17,18 +17,20 @@ class Profile extends Component {
     const email = auth.currentUser.email;
 
     // Traer username
+    // Busco SOLO el documento cuyo email coincide con el del usuario logueado
     db.collection('users')
       .where('email', '==', email)
       .limit(1)
       .onSnapshot(docs => {
         let nombre = '';
+                // Recorro los docs que devolvió Firestore 
         docs.forEach(doc => { nombre = doc.data().username; });
         this.setState({ email, username: nombre });
       });
 
     // Traer mis posteos
     db.collection('posts')
-      .where('email', '==', email)
+      .where('email', '==', email) //filtro solo los del usuario
       .onSnapshot(docs => {
         let res = [];
         docs.forEach(doc => res.push({ id: doc.id, data: doc.data() }));
@@ -43,6 +45,7 @@ class Profile extends Component {
   // Logout y redirección
   logout() {
     auth.signOut()
+    // Después del signOut, navego al login
       .then(() => this.props.navigation.navigate('Login'))
       .catch(e => console.log(e));
   }

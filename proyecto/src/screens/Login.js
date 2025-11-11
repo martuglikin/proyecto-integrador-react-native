@@ -15,6 +15,7 @@ class Login extends Component {
   }
 
   componentDidMount(){
+    //chequa cambio de sesión, hi hay uno loguado, redirige a HomeMenu
     auth.onAuthStateChanged(user => {
       if(user != null){
         this.props.navigation.navigate('HomeMenu');
@@ -27,6 +28,7 @@ class Login extends Component {
     const username = this.state.username;
     const password = this.state.password;
 
+    //validaciones del formato
     console.log('Datos de registro:', { email, username, password });
     if (email.includes('@') === false) {
       this.setState({ error: 'Email mal formateado' });
@@ -44,6 +46,7 @@ class Login extends Component {
         this.props.navigation.navigate('HomeMenu'); // o tu pantalla Home
       })
       .catch((error) => {
+        //si falla, uso la funcion del componente traductor para mostrar el mensaje
         this.setState({ error: traductor(error) });
         console.log(error)
       });
@@ -66,7 +69,7 @@ class Login extends Component {
           style={styles.field}
           keyboardType="default"
           placeholder="contraseña"
-          secureTextEntry={true}
+          secureTextEntry={true} //oculta carateres de la contra
           onChangeText={(text) => this.setState({ password: text })}
           value={this.state.password}
         />

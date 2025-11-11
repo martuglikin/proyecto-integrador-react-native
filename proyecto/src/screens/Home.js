@@ -16,11 +16,14 @@ class Home extends Component {
     }
 
     componentDidMount() {
+        //onSnapshot actualiza los cambios sin recargar, si se borra o agrega un post
         db.collection('posts').orderBy("createdAt", "desc").onSnapshot(docs => { //permite obtener los documentos de una consulta en orden descendente (mas nuevo al mas viejo)
             let posts = []
             docs.forEach(doc => {
+                //guardo cada post en un array con su data
                 posts.push({ id: doc.id, data: doc.data() })
             })
+            //actualizo el estado, se vuelve a renderizar automaticamente
             this.setState({ posts: posts, loading: false })
         })
     }

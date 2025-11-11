@@ -9,8 +9,10 @@ class NuevoPost extends Component {
   }
 
   onSubmit() {
+    //obtenemos el email del usuario
     const email = auth.currentUser ? auth.currentUser.email : null;
 
+    //guardamos el post y sus datos
     db.collection('posts')
       .add({
         email: email,
@@ -18,6 +20,7 @@ class NuevoPost extends Component {
         createdAt: Date.now(),
         likes: [], 
       })
+      //una vez guardado vaciamos el input para que el usuario pueda hacer un nuevo post
       .then(() => this.setState({ mensaje: '' }));
   }
 
@@ -26,6 +29,7 @@ class NuevoPost extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>Crear nuevo post</Text>
 
+      {/*campo de texto para escribir un nuevo post*/}
         <TextInput
           style={[styles.field, styles.fieldLarge]}
           multiline
