@@ -80,7 +80,7 @@ class Profile extends Component {
 const styles = StyleSheet.create({
   container: { flex: 1, alignSelf: 'stretch', padding: 16, paddingTop: 24 },
   title: { fontSize: 20, fontWeight: '700', textAlign: 'left', marginBottom: 8 },
-   sectionTitle: { marginTop: 16 },
+  sectionTitle: { marginTop: 16 },
   row: { marginBottom: 6 },
   logout: {
     backgroundColor: '#6c757d',
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#6c757d',
     marginTop: 12,
-    alignSelf: 'center'
+    alignSelf: 'center' //The element is positioned at the center of the container (w3Schools)
   },
   fuente:{
      fontWeight: '700' 

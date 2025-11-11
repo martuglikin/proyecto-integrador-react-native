@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, alignSelf: 'stretch', padding: 16, paddingTop: 24 },
   title: { fontSize: 22, fontWeight: '700', textAlign: 'center', marginBottom: 12 },
   field: {
-    height: 20, paddingVertical: 15, paddingHorizontal: 10,
+    height: 20, padding: 10,
     borderWidth: 1, borderColor: '#ccc', borderStyle: 'solid',
     borderRadius: 6, marginVertical: 10,
   },
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top'
   },
   button: {
-    backgroundColor: '#28a745', paddingHorizontal: 10, paddingVertical: 6,
+    backgroundColor: '#28a745', padding: 10,
     borderRadius: 4, borderWidth: 1, borderColor: '#28a745', alignSelf: 'center', minWidth: 160,
   },
   buttonText: { color: '#fff', textAlign: 'center', fontWeight: '700' },

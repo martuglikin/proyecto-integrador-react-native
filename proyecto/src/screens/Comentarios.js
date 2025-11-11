@@ -128,12 +128,11 @@ const styles = StyleSheet.create({
     padding: 10, marginBottom: 8,
   },
   commentOwner: { fontWeight: '700', marginBottom: 4 },
-  commentText: { fontSize: 15, lineHeight: 20 },
+  commentText: { fontSize: 15},
 
   button: {
     backgroundColor: '#28a745',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
+    padding: 10,
     borderRadius: 4,
     borderWidth: 1,
     borderColor: '#28a745',
@@ -144,8 +143,7 @@ const styles = StyleSheet.create({
 
   inputTexto: {
     height: 100,
-    paddingVertical: 15,
-    paddingHorizontal: 10,
+    padding: 10,
     borderWidth: 1,
     borderColor: '#ccc',
     borderStyle: 'solid',

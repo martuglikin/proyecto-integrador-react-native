@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
 import { db, auth } from '../firebase/config';
-import traductor from '../components/traductor';
+import traductor from "../components/traductor";
 
 class Login extends Component {
 
@@ -98,13 +98,12 @@ class Login extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, alignSelf: 'stretch', padding: 16, justifyContent: 'center' },
+  container: { flex: 1, alignSelf: 'stretch', padding: 16, justifyContent: 'center' }, //alignSelf: stretch - The element is positioned to fit the container (w3Schools)
   title: { fontSize: 22, fontWeight: '700', textAlign: 'center', marginBottom: 16 },
   buttonText: { color: '#fff', textAlign: 'center', fontWeight: '700' },
   field: {
     height: 20,
-    paddingVertical: 15,
-    paddingHorizontal: 10,
+    padding: 15,
     borderWidth: 1,
     borderColor: '#ccc',
     borderStyle: 'solid',
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   button: {
-    backgroundColor: '#28a745', paddingHorizontal: 10, paddingVertical: 6,
+    backgroundColor: '#28a745', padding: 10,
     borderRadius: 4, borderWidth: 1, borderColor: '#28a745',
     alignSelf: 'center', minWidth: 180, marginTop: 10
   },

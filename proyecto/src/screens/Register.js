@@ -110,12 +110,12 @@ const styles = StyleSheet.create({
   container: { paddingHorizontal: 10, marginTop: 20, flex: 1, alignSelf: 'stretch', justifyContent: 'center' },
   title: { fontSize: 22, fontWeight: '700', textAlign: 'center', marginBottom: 16 },
   field: {
-    height: 20, paddingVertical: 15, paddingHorizontal: 10,
+    height: 20, padding: 15,
     borderWidth: 1, borderColor: '#ccc', borderStyle: 'solid',
     borderRadius: 6, marginVertical: 10,
   },
   button: {
-    backgroundColor: '#2cb34bff', paddingHorizontal: 10, paddingVertical: 6,
+    backgroundColor: '#2cb34bff', padding: 10,
     borderRadius: 4, borderWidth: 1, borderColor: '#28a745',
     alignSelf: 'center', minWidth: 180, marginTop: 10
   },

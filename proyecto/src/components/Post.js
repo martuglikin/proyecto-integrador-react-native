@@ -79,7 +79,7 @@ class Post extends Component {
 const styles = StyleSheet.create({
   card: { borderWidth: 1, borderColor: '#ddd', borderRadius: 12, padding: 12, marginBottom: 12 },
   autor: { fontWeight: '700', marginBottom: 6 },
-  message: { fontSize: 16, lineHeight: 22, marginBottom: 10 },
+  message: { fontSize: 16, marginBottom: 10 },
   contendor: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap' },
   btn: {
     backgroundColor: '#eef6ff',
